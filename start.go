@@ -14,15 +14,22 @@ func main() {
 		fmt.Println(i)
 		time.Sleep(1 * time.Second)
 	}
-	var input string
-	word := randomdata.Adjective()
-	fmt.Printf("[ %s ] と入力してください\n",word)
-	fmt.Scan(&input)
-	if input == word{
-		fmt.Println("正解！")
-	} else {
-		fmt.Println("不正解...")
-		fmt.Printf("あなたが入力したのは%sです\n",input)
-		time.Sleep(1 * time.Second)
+
+	score := 0
+	for e := 1; e <= 3; e++ {
+		var input string
+		word := randomdata.Adjective()
+		fmt.Printf("[ %s ] と入力してください\n",word)
+		fmt.Scan(&input)
+		if input == word{
+			fmt.Println("正解！")
+			score++
+		} else {
+			fmt.Println("不正解...")
+			fmt.Printf("あなたが入力したのは%sです\n",input)
+			time.Sleep(1 * time.Second)
+		}
 	}
+	fmt.Printf("あなたのスコアは%dでした\n",score)
+
 }
