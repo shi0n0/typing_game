@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"time"
+	"github.com/Pallinder/go-randomdata"
 )
 
 func main() {
@@ -13,11 +14,11 @@ func main() {
 		fmt.Println(i)
 		time.Sleep(1 * time.Second)
 	}
-	
 	var input string
-	fmt.Println("[ golang ] と入力してください")
+	word := randomdata.Adjective()
+	fmt.Printf("[ %s ] と入力してください\n",word)
 	fmt.Scan(&input)
-	if input == "golang"{
+	if input == word{
 		fmt.Println("正解！")
 	} else {
 		fmt.Println("不正解...")
